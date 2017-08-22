@@ -82,8 +82,8 @@ const validate =  (values) => {
 };
 function mapDispatchToProps (dispatch) {
     return {
-        createPost: () => {
-          dispatch(createPost());
+        createPost: (values) => {
+          dispatch(createPost(values));
         }
     };
 }
