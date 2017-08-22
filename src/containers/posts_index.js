@@ -1,9 +1,9 @@
-    import { fetchPosts  } from "../actions";
-    import React, {Component} from "react";
-    import {bindActionCreators, dispatch} from "redux";
-    import {connect} from "react-redux";
-    import PropTypes  from "prop-types";
-
+import { fetchPosts  } from "../actions";
+import React, {Component} from "react";
+import {bindActionCreators, dispatch} from "redux";
+import {connect} from "react-redux";
+import PropTypes  from "prop-types";
+import {Link} from "react-router-dom";
 
     class PostsIndex extends Component {
 
@@ -18,11 +18,21 @@
 
         }
 
-
         displayPosts () {
-            return  Object.values(this.props.posts).map((post)=>{
-                return (<div key={post.id}>{post.title}</div>);
-            });
+           
+                return (
+                    <div>      
+                        <div className="text-xs-right">
+                            <Link className="btn btn-primary" to="/posts/new">Add Post</Link>
+                        </div>
+                        <h3>Posts</h3>
+                        <ul className="list-group">
+                            {Object.values(this.props.posts).map((post)=>{return (
+                                <li className="list-group-item" key={post.id}>{post.title}</li>
+                            ); })}
+                        </ul>
+                    </div>
+                );
         }
         render() {
             if(this.props.posts.length === 0) {

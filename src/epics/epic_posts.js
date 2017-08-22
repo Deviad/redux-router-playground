@@ -1,5 +1,5 @@
 import * as ActionTypes from "../ActionTypes";
-import {fetchWeather} from "../actions";
+import { createPostFulfilled, fetchPostsFulfilled } from "../actions";
 import { Observable } from "rxjs/Observable";
 import {RxHttpRequest} from "rx-http-request";
 import "rxjs/add/observable/dom/ajax";
@@ -14,11 +14,11 @@ import "rxjs/add/operator/filter";
 import "rxjs/add/operator/switchMap";
 import "rxjs/add/operator/catch";
 
-import {fetchPostsFullfilled} from "../actions";
 
 const API_KEY = "davide123";
-const ROOT_URL = `http://reduxblog.herokuapp.com/api/posts?key=${API_KEY}`;
+
 export  const fetchPostsEpic = (action$) => {
+    const ROOT_URL = `http://reduxblog.herokuapp.com/api/posts?key=${API_KEY}`;
     const options = {
        json: true
     };
@@ -27,7 +27,21 @@ export  const fetchPostsEpic = (action$) => {
         .mergeMap(action$ => (
                     RxHttpRequest.get(`${ROOT_URL}`, options)
                         .map(res => {return res.body;})
-                        .map(response => fetchPostsFullfilled(response), (err) => {console.log(err);}))
+                        .map(response => fetchPostsFulfilled(response), (err) => {console.log(err);}))
 
         );
+};
+export  const createPostEpic = (action$) => {
+    const ROOT_URL = `http://reduxblog.herokuapp.com/api/posts?key=${API_KEY}`;    
+    const options = {
+       json: true,
+       body: action$.payload
+    };
+
+    return action$.filter((action$)=> action$.type === ActionTypes.CREATE_POST)
+        .mergeMap(action$ => {
+            console.log('asdasdas');        
+                return   RxHttpRequest.post(`${ROOT_URL}`, options)
+                        .map(res => {return res.body;})
+                        .map(response => createPostFulfilled(response), (err) => {console.log(err);});});
 };

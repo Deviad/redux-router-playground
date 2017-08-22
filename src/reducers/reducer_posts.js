@@ -3,7 +3,7 @@ import * as _ from "lodash";
 
 export default function postsReducer(state={}, action) {
     switch (action.type) {
-        case ActionTypes.FETCH_POSTS_FULLFILLED:
+        case ActionTypes.FETCH_POSTS_FULFILLED:
             return action.payload.reduce((acc, post) => {
                 // console.log(acc);
                 acc[post.id] = post;
@@ -11,7 +11,7 @@ export default function postsReducer(state={}, action) {
             }, { ...state });
         // use Object.assign if object-spread
         // syntax isn't supported
-        // return    Object.assign({}, state);
+        // Object.assign({}, state);
 
         default:
             return state;
