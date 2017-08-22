@@ -8,6 +8,12 @@ import PropTypes  from "prop-types";
 
 class PostsNew extends Component {
 
+    state = {
+        theForm: {
+            resStatusCode: 0
+        }
+    }
+
     renderField = (field) => {
         //instead of using this longer declaration
         // const className = `form-group ${field.meta.touched && field.meta.error ? "has-danger" : ""}`;
@@ -35,9 +41,11 @@ class PostsNew extends Component {
     }
     
     onSubmit = (values) => {
-      this.props.createPost(values);
+       
+        this.props.createPost(values);
+        
     }
-
+ 
     render () {
         //equivalent to const handleSubmit = this.props.handleSubmit using ES6 destructuring feature
         const { handleSubmit } = this.props;
@@ -87,9 +95,15 @@ function mapDispatchToProps (dispatch) {
         }
     };
 }
+function mapStateToProps(state) {
+    return {
+        resStatusCode: (state.theForm.resStatusCode) ? state.theForm.resStatusCode : 0
+    };
+}
+
 export default reduxForm(
     {
         validate,
         form: "PostsNewForm"
     }
-)(connect(null, mapDispatchToProps)(PostsNew));
+)(connect(mapStateToProps, mapDispatchToProps)(PostsNew));

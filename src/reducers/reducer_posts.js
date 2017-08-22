@@ -12,7 +12,8 @@ export default function postsReducer(state={}, action) {
         // use Object.assign if object-spread
         // syntax isn't supported
         // Object.assign({}, state);
-
+        case ActionTypes.CREATE_POST_FULFILLED:
+        return {...state, [state.theForm.resStatusCode]: state.theForm};   
         default:
             return state;
     }
