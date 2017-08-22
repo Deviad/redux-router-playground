@@ -81,11 +81,15 @@ const validate =  (values) => {
     return errors;
 };
 function mapDispatchToProps (dispatch) {
-        return  bindActionCreators({createPost: createPost}, dispatch);
+    return {
+        createPost: () => {
+          dispatch(createPost());
+        }
+    };
 }
 export default reduxForm(
     {
         validate,
         form: "PostsNewForm"
     }
-)(connect(mapDispatchToProps)(PostsNew));
+)(connect(null, mapDispatchToProps)(PostsNew));
