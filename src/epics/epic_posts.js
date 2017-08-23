@@ -45,26 +45,24 @@ export  const createPostEpic = (action$) => {
         });
 };
 /* eslint-disable */
-// export const changeRouteEpic = (action$, store) => {
-//     return action$.filter((action$)=> action$.type === ActionTypes.CHANGE_ROUTE)
-//         .switchMap( 
-//             () => concat$(
-//                 from$(store.dispatch(fetchPosts())),
-//                 of$(store.dispatch(changeRoute("/"))
-//             )
-//         ));
 
-//     };
+//  export const changeRouteEpic = (action$) => {
+//         return action$.filter((action$)=> action$.type === ActionTypes.CHANGE_ROUTE)
+//             .switchMap( 
+//                 (action$) => concat$(
+//                     from$(store.dispatch(fetchPosts())),
+//                     of$(store.dispatch(history.replace(action$.payload)),
+     
+//                 )
+//             ));
+//         };
 
- export const changeRouteEpic = (action$, store) => {
-        return action$.filter((action$)=> action$.type === ActionTypes.CHANGE_ROUTE)
-            .flatMap( 
-                (action$) => concat$(
-                    from$(store.dispatch(fetchPosts())),
-                    of$(store.dispatch(history.push(action$.payload))
-                )
-            ));
+
+        export const changeRouteEpic = (action$) => {
+            return action$.filter((action$)=> action$.type === ActionTypes.CHANGE_ROUTE)
+            .mergeMap(action$ => {
+                window.location.replace(action$.payload);
+            });
         };
-
 
 /* eslint-enable */
