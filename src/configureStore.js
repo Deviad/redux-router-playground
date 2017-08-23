@@ -5,7 +5,7 @@ import { rootReducer } from "./reducers";
 import { rootEpic } from "./epics";
 import { combineEpics, createEpicMiddleware } from "redux-observable";
 import {routerMiddleware} from "react-router-redux";
-import {history} from "./history_factory";
+import {history} from "./providers";
 const epicMiddleware = createEpicMiddleware((combineEpics(rootEpic)));
 
 

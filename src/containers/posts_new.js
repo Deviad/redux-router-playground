@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import {createPost} from "../actions/";
 import {connect} from "react-redux";
 import {bindActionCreators, dispatch} from "redux";
+import { push } from "react-router-redux";
 import PropTypes  from "prop-types";
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/observable/dom/ajax";
@@ -12,13 +13,14 @@ import "rxjs/add/operator/debounceTime";
 import "rxjs/add/operator/map";
 import "rxjs/add/observable/of";
 import "rxjs/add/observable/from";
+import "rxjs/add/observable/fromPromise";
 import "rxjs/add/operator/mergeMap";
 import "rxjs/add/operator/startWith";
 import "rxjs/add/operator/filter";
 import "rxjs/add/operator/switchMap";
 import "rxjs/add/operator/catch";
 import "rxjs/add/observable/dom/ajax";
-
+import {store} from "../providers";
 class PostsNew extends Component {
 
     state = {
@@ -52,22 +54,9 @@ class PostsNew extends Component {
             </div>
         ); 
     }
-    
+
     onSubmit = (values) => {
-        let statusCode$ = Observable.create(
-            (observer)=> {
-                observer.next(
-                    this.props.createPost(values)
-                );
-
-                observer.complete();
-      
-            }
-        );
-
-        statusCode$.delay(500).subscribe(()=>{
-            this.props.history.push("/");
-        });
+        this.props.createPost(values, ()=>(this.props.history.push("/")));
     }
  
     render () {

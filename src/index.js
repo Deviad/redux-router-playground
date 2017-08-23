@@ -9,11 +9,9 @@ import "rxjs";
 import PostsIndex from "./containers/posts_index";
 import PostsNew from "./containers/posts_new";
 import registerServiceWorker from "./registerServiceWorker";
-import configureStore from "./configureStore";
 import NotFound from "./components/not_found";
 import { ConnectedRouter, push } from "react-router-redux";
-import {history} from "./history_factory";
-const store = configureStore();
+import {store, history} from "./providers";
 
 ReactDOM.render(
     <Provider store={store}>

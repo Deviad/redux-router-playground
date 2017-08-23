@@ -1,5 +1,6 @@
 import * as ActionTypes from "../ActionTypes";
-import { createPostFulfilled, fetchPostsFulfilled } from "../actions";
+import { createPostFulfilled, fetchPostsFulfilled, changeRoute } from "../actions";
+import {store} from "../providers";
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/observable/dom/ajax";
 import "rxjs/add/observable/combineLatest";
@@ -25,7 +26,8 @@ export  const fetchPostsEpic = (action$) => {
         });
 };
 
-export  const createPostEpic = (action$) => {
+export  const createPostEpic = (action$, cb) => {
+    console.log(action$.cb);
     return action$.filter((action$)=> action$.type === ActionTypes.CREATE_POST)
         .concatMap(action$ => {
                 return   Observable.ajax.post(`${ROOT_URL}/posts/${API_KEY}`, action$.payload)
@@ -33,7 +35,8 @@ export  const createPostEpic = (action$) => {
                             (data) => {
                                 if (data.status === 201) {
                                     console.log("Success status", data.status);
-                                    return createPostFulfilled(data.status);
+                                    store.dispatch(changeRoute("/"));
+                                    // return createPostFulfilled(data.status);
                                 }
                                 else {console.log("Server error is", data.status);}
                             },
@@ -41,3 +44,11 @@ export  const createPostEpic = (action$) => {
                         );
         });
 };
+/* eslint-disable */
+export const changeRouteEpic = (action$) => {
+    return action$.filter((action$)=> action$.type === ActionTypes.CHANGE_ROUTE)
+    .mergeMap(action$ => {
+        window.location.replace(action$.payload);
+    });
+};
+/* eslint-enable */

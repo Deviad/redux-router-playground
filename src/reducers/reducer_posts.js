@@ -1,5 +1,5 @@
 import * as ActionTypes from "../ActionTypes";
-import * as _ from "lodash";
+
 
 export default function postsReducer(state={}, action) {
     switch (action.type) {
@@ -14,7 +14,7 @@ export default function postsReducer(state={}, action) {
         // Object.assign({}, state);
         case ActionTypes.CREATE_POST_FULFILLED:
          const theForm = {resStatusCode: action.payload};
-        return {...state, [theForm.resStatusCode]: theForm};   
+            return {...state, [theForm.resStatusCode]: theForm};   
         default:
             return state;
     }
