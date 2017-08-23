@@ -5,6 +5,19 @@ import {createPost} from "../actions/";
 import {connect} from "react-redux";
 import {bindActionCreators, dispatch} from "redux";
 import PropTypes  from "prop-types";
+import { Observable } from "rxjs/Observable";
+import "rxjs/add/observable/dom/ajax";
+import "rxjs/add/observable/combineLatest";
+import "rxjs/add/operator/debounceTime";
+import "rxjs/add/operator/map";
+import "rxjs/add/observable/of";
+import "rxjs/add/observable/from";
+import "rxjs/add/operator/mergeMap";
+import "rxjs/add/operator/startWith";
+import "rxjs/add/operator/filter";
+import "rxjs/add/operator/switchMap";
+import "rxjs/add/operator/catch";
+import "rxjs/add/observable/dom/ajax";
 
 class PostsNew extends Component {
 
@@ -41,9 +54,20 @@ class PostsNew extends Component {
     }
     
     onSubmit = (values) => {
-       
-        this.props.createPost(values);
-        
+        let statusCode$ = Observable.create(
+            (observer)=> {
+                observer.next(
+                    this.props.createPost(values)
+                );
+
+                observer.complete();
+      
+            }
+        );
+
+        statusCode$.delay(500).subscribe(()=>{
+            this.props.history.push("/");
+        });
     }
  
     render () {
@@ -97,7 +121,7 @@ function mapDispatchToProps (dispatch) {
 }
 function mapStateToProps(state) {
     return {
-        resStatusCode: (state.theForm.resStatusCode) ? state.theForm.resStatusCode : 0
+        resStatusCode: state.theForm && state.theForm.resStatusCode ? state.theForm.resStatusCode : 0
     };
 }
 

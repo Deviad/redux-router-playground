@@ -1,7 +1,6 @@
 import * as ActionTypes from "../ActionTypes";
 import { createPostFulfilled, fetchPostsFulfilled } from "../actions";
 import { Observable } from "rxjs/Observable";
-import {RxHttpRequest} from "rx-http-request";
 import "rxjs/add/observable/dom/ajax";
 import "rxjs/add/observable/combineLatest";
 import "rxjs/add/operator/debounceTime";

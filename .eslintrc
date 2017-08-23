@@ -5,7 +5,7 @@
     // I write for browser
     "browser": true,
     // in CommonJS
-    "node": true
+    "node": false
   },
   // To give you an idea how to override rule options:
   "rules": {
@@ -22,5 +22,8 @@
           "ecmaFeatures": {
               "jsx": true
           }
-      }
+      },
+  "globals": {
+    "React": true
+  }
 }

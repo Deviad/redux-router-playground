@@ -13,7 +13,8 @@ export default function postsReducer(state={}, action) {
         // syntax isn't supported
         // Object.assign({}, state);
         case ActionTypes.CREATE_POST_FULFILLED:
-        return {...state, [state.theForm.resStatusCode]: state.theForm};   
+         const theForm = {resStatusCode: action.payload};
+        return {...state, [theForm.resStatusCode]: theForm};   
         default:
             return state;
     }
