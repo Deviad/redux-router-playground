@@ -1,13 +1,14 @@
 import * as ActionTypes from "../ActionTypes";
-import { createPostFulfilled, fetchPostsFulfilled, changeRoute } from "../actions";
-import {store} from "../providers";
+import { createPostFulfilled, fetchPosts, fetchPostsFulfilled, changeRoute } from "../actions";
+import {store, history} from "../providers";
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/observable/dom/ajax";
 import "rxjs/add/observable/combineLatest";
 import "rxjs/add/operator/debounceTime";
+import { concat as concat$ } from "rxjs/observable/concat";
+import { from as from$ } from "rxjs/observable/from";
+import { of as of$ } from "rxjs/observable/of";
 import "rxjs/add/operator/map";
-import "rxjs/add/observable/of";
-import "rxjs/add/observable/from";
 import "rxjs/add/operator/mergeMap";
 import "rxjs/add/operator/startWith";
 import "rxjs/add/operator/filter";
@@ -26,8 +27,7 @@ export  const fetchPostsEpic = (action$) => {
         });
 };
 
-export  const createPostEpic = (action$, cb) => {
-    console.log(action$.cb);
+export  const createPostEpic = (action$) => {
     return action$.filter((action$)=> action$.type === ActionTypes.CREATE_POST)
         .concatMap(action$ => {
                 return   Observable.ajax.post(`${ROOT_URL}/posts/${API_KEY}`, action$.payload)
@@ -45,10 +45,26 @@ export  const createPostEpic = (action$, cb) => {
         });
 };
 /* eslint-disable */
-export const changeRouteEpic = (action$) => {
-    return action$.filter((action$)=> action$.type === ActionTypes.CHANGE_ROUTE)
-    .mergeMap(action$ => {
-        window.location.replace(action$.payload);
-    });
-};
+// export const changeRouteEpic = (action$, store) => {
+//     return action$.filter((action$)=> action$.type === ActionTypes.CHANGE_ROUTE)
+//         .switchMap( 
+//             () => concat$(
+//                 from$(store.dispatch(fetchPosts())),
+//                 of$(store.dispatch(changeRoute("/"))
+//             )
+//         ));
+
+//     };
+
+ export const changeRouteEpic = (action$, store) => {
+        return action$.filter((action$)=> action$.type === ActionTypes.CHANGE_ROUTE)
+            .flatMap( 
+                (action$) => concat$(
+                    from$(store.dispatch(fetchPosts())),
+                    of$(store.dispatch(history.push(action$.payload))
+                )
+            ));
+        };
+
+
 /* eslint-enable */
