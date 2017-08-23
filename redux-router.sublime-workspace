@@ -1,0 +1,975 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Sparklines",
+				"react-sparklines"
+			],
+			[
+				"goo",
+				"google_map.js"
+			],
+			[
+				"SparkLines",
+				"SparkLinesReferenceLine"
+			],
+			[
+				"div",
+				"div"
+			],
+			[
+				"ht",
+				"http\t(urls.py)"
+			],
+			[
+				"html",
+				"html5\tSimple HTML5 Boilerplate"
+			],
+			[
+				"scr",
+				"script\t<script>"
+			],
+			[
+				"move",
+				"move_to_list"
+			],
+			[
+				"bul",
+				"bulk_users_select_action"
+			],
+			[
+				"style",
+				"styles\t(base.html.twig)"
+			],
+			[
+				"str",
+				"strtolower\t(FrontController.php)"
+			],
+			[
+				"va",
+				"value"
+			],
+			[
+				"get",
+				"getResult"
+			],
+			[
+				"group",
+				"groupBy"
+			],
+			[
+				"campa",
+				"campaign_payment"
+			],
+			[
+				"Camp",
+				"CampaignPayment"
+			],
+			[
+				"AlumniBase",
+				"AlumniBaseBundle"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/configureStore.js",
+			"settings":
+			{
+				"buffer_size": 842,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "import {createPostEpic, fetchPostsEpic, fetchPostsWithIdEpic } from \"./epic_posts\";\nimport { combineEpics } from \"redux-observable\";\n\nexport const rootEpic = combineEpics(\n    fetchPostsEpic,\n    fetchPostsWithIdEpic,\n    createPostEpic,\n    changeRouteEpic\n);",
+			"file": "src/epics/index.js",
+			"file_size": 278,
+			"file_write_time": 131479656000000000,
+			"settings":
+			{
+				"buffer_size": 260,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "inst",
+		"selected_items":
+		[
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"eslint",
+				"Preferences: SublimeLinter Settings – User"
+			],
+			[
+				"linter",
+				"SublimeLinter: Toggle Linter"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"lint",
+				"SublimeLinter: Enable Linter"
+			],
+			[
+				"babel linter",
+				"SublimeLinter: Enable Linter"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"package control",
+				"Package Control: Remove Package"
+			],
+			[
+				"codeintel",
+				"SublimeCodeIntel: Enable Live Autocompletion for Current Language"
+			],
+			[
+				"upgrade",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"js",
+				"Set Syntax: JavaScript (Babel)"
+			],
+			[
+				"emme",
+				"Emmet: Expand Abbreviation"
+			],
+			[
+				"sublime linter",
+				"SublimeLinter: Choose Lint Mode"
+			],
+			[
+				"sublime linter settin",
+				"Preferences: SublimeLinter Settings – User"
+			],
+			[
+				"terminal",
+				"Terminal: Open"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"react",
+				"Set Syntax: TypeScriptReact"
+			],
+			[
+				"html",
+				"Snippet: bs3-html5-template"
+			],
+			[
+				"java",
+				"Set Syntax: Java"
+			],
+			[
+				"code",
+				"CodeFormatter: Format Code"
+			],
+			[
+				"javas",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"format",
+				"CodeFormatter: Format Code"
+			],
+			[
+				"jsx",
+				"CodeFormatter: Format as Javascript Syntax"
+			],
+			[
+				"php",
+				"Set Syntax: PHP"
+			],
+			[
+				"pyth",
+				"Set Syntax: Python"
+			],
+			[
+				"twig",
+				"Set Syntax: HTML (Twig)"
+			],
+			[
+				"syntax javasc",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"syntax tw",
+				"Set Syntax: HTML (Twig)"
+			],
+			[
+				"html5",
+				"Snippet: bs3-html5-template"
+			],
+			[
+				"javasc",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"x",
+				"Xdebug: Start Debugging"
+			],
+			[
+				"xde",
+				"Xdebug: Start Debugging"
+			],
+			[
+				"xdeb",
+				"Xdebug: Restart Session"
+			],
+			[
+				"syntax",
+				"Set Syntax: PHP"
+			],
+			[
+				"synt",
+				"Set Syntax: PHP"
+			],
+			[
+				"doc",
+				"DocBlockr: Decorate line comment"
+			]
+		],
+		"width": 575.0
+	},
+	"console":
+	{
+		"height": 325.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Volumes/Data/projects/reactjs-playground/Stephen Udemy/Playgrounds/redux-router-playground",
+		"/Volumes/Data/projects/reactjs-playground/Stephen Udemy/Playgrounds/redux-router-playground/src",
+		"/Volumes/Data/projects/reactjs-playground/Stephen Udemy/Playgrounds/redux-router-playground/src/components",
+		"/Volumes/Data/projects/reactjs-playground/Stephen Udemy/Playgrounds/redux-router-playground/src/epics"
+	],
+	"file_history":
+	[
+		"/Volumes/Data/projects/reactjs-playground/Stephen Udemy/Playgrounds/redux-router-playground/node_modules/redux-observable/index.d.ts",
+		"/Volumes/Data/projects/reactjs-playground/Stephen Udemy/Playgrounds/redux-router-playground/node_modules/redux/dist/redux.js",
+		"/Volumes/Data/projects/reactjs-playground/Stephen Udemy/Playgrounds/redux-router-playground/node_modules/rx-http-request/lib/index.js",
+		"/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/typescript/snippets/typescript.json",
+		"/Volumes/Data/projects/reactjs-playground/Stephen Udemy/Playgrounds/redux-middleware-playground/node_modules/redux-observable/index.d.ts",
+		"/Volumes/Data/projects/reactjs-playground/Stephen Udemy/Playgrounds/redux-middleware-playground/node_modules/react-sparklines/build/index.js",
+		"/Volumes/Data/projects/reactjs-playground/Stephen Udemy/Playgrounds/redux-middleware-playground/src/containers/weather_list.js",
+		"/Volumes/Data/projects/reactjs-playground/Stephen Udemy/Playgrounds/redux-middleware-playground/node_modules/@types/react/index.d.ts",
+		"/Volumes/Data/projects/reactjs-playground/Stephen Udemy/Playgrounds/redux-middleware-playground/src/containers/search_bar.js",
+		"/Volumes/Data/projects/reactjs-playground/Stephen Udemy/Playgrounds/redux-middleware-playground/node_modules/babel-core/lib/transformation/plugin.js",
+		"/Volumes/Data/projects/reactjs-playground/Stephen Udemy/Playgrounds/redux-middleware-playground/node_modules/lodash/chain.js",
+		"/Volumes/Data/projects/reactjs-playground/Stephen Udemy/Playgrounds/redux-middleware-playground/node_modules/babel-register/node_modules/core-js/client/core.js",
+		"/Volumes/Data/projects/reactjs-playground/Stephen Udemy/Playgrounds/redux-middleware-playground/node_modules/lodash/_createMathOperation.js",
+		"/Volumes/Data/projects/reactjs-playground/Stephen Udemy/Playgrounds/redux-middleware-playground/.eslintrc",
+		"/Users/spotted/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/Volumes/Data/projects/reactjs-playground/Stephen Udemy/Playgrounds/redux-middleware-playground/src/components/chart.js",
+		"/Volumes/Data/projects/reactjs-playground/Stephen Udemy/Playgrounds/redux-middleware-playground/node_modules/errno/build.js",
+		"/Volumes/Data/projects/reactjs-playground/Stephen Udemy/Playgrounds/redux-middleware-playground/node_modules/rx-lite/rx.lite.js",
+		"/Volumes/Data/projects/reactjs-playground/Stephen Udemy/Playgrounds/redux-middleware-playground/node_modules/rxjs/add/operator/mergeMap.d.ts",
+		"/Volumes/Data/projects/reactjs-playground/Stephen Udemy/Playgrounds/redux-middleware-playground/src/actions/index.js",
+		"/Volumes/Data/projects/reactjs-playground/Stephen Udemy/Playgrounds/redux-middleware-playground/node_modules/rxjs/add/operator/switchMap.d.ts",
+		"/Users/spotted/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/spotted/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/spotted/Desktop/irinel_newsletter_view.php",
+		"/Users/spotted/Desktop/state.json",
+		"/Volumes/Data/projects/reactjs-playground/Stephen Udemy/ReduxSimpleStarter/src/actions/index.js",
+		"/Volumes/Data/projects/reactjs-playground/Stephen Udemy/ReduxSimpleStarter/src/components/app.js",
+		"/Volumes/Data/projects/reactjs-playground/Fullstack React playgrounds/voting_app/public/js/app-2.js",
+		"/Users/spotted/Desktop/test.html",
+		"/Volumes/Data/projects/reactjs-playground/redux-observable/examples/redux-observable-shopping-cart/js/actions/index.js",
+		"/Volumes/Data/projects/reactjs-playground/redux-observable-playground/node_modules/redux-observable/lib/es/combineEpics.js",
+		"/Volumes/Data/projects/reactjs-playground/redux-observable-playground/node_modules/rxjs/util/subscribeToResult.js",
+		"/Volumes/Data/projects/reactjs-playground/redux-observable-playground/src/App.js",
+		"/Volumes/Data/projects/reactjs-playground/redux-observable-playground/node_modules/rxjs/operator/mergeMap.js",
+		"/Volumes/Data/projects/reactjs-playground/ReduxCasts/book_list/src/index.js",
+		"/Volumes/Data/projects/reactjs-playground/ReduxSimpleStarter/src/index.js",
+		"/Volumes/Data/Resources/Java/example of dao and hibernate add user/dao/CustomerDAOImpl.java",
+		"/private/var/folders/74/4fhn54y97kzdntff775fplj40000gn/T/BetterZip Temporary Folder.Q1y08L/BetterZip Temporary Folder.HEGjIB/solution-code-spring-java-config-define-beans/com/luv2code/springdemo/SportConfig.java",
+		"/Volumes/Data/projects/java_projects/springfood.bfg-report/2017-08-12/16-08-48/protected-dirt/d1205bac-HEAD.csv",
+		"/Users/spotted/.ssh/config",
+		"/Users/spotted/.ssh/id_springfood_rsa.pub",
+		"/Users/spotted/.ssh/id_springbootstarter_rsa.pub",
+		"/Users/spotted/.ssh/id_springfood_rsa",
+		"/Volumes/Data/Resources/Java/jpwh-2e-examples-20151103/apps/app-model/src/main/java/org/jpwh/dao/GenericDAO.java",
+		"/Volumes/Data/Resources/Java/jpwh-2e-examples-20151103/apps/app-web/src/main/java/org/jpwh/web/dao/ItemDAO.java",
+		"/Volumes/Data/Resources/Java/jpwh-2e-examples-20151103/apps/app-web/src/main/java/org/jpwh/web/dao/EntityManagerProducer.java",
+		"/Volumes/Data/Resources/Java/example of dao and hibernate add user/service/CustomerServiceImpl.java",
+		"/Volumes/Data/Resources/Java/example of dao and hibernate/dao/CustomerDAO.java",
+		"/Volumes/Data/Resources/Java/Jrebel_licence_orig",
+		"/Users/spotted/.ssh/id_springbootstarter_rsa",
+		"/Users/spotted/jrebel_6.0.3-agent-crack/bin/go-offline.sh",
+		"/Users/spotted/jrebel_6.0.3-agent-crack/bin/activate-gui.sh",
+		"/Users/spotted/jrebel_6.0.3-agent-crack/bin/setup.sh",
+		"/Users/spotted/apache-tomcat-8.5.16/bin/catalina.sh",
+		"/Users/spotted/apache-tomcat-8.5.16/webapps/manager/WEB-INF/web.xml",
+		"/Volumes/Data/projects/reactjs-playground/fullstack-redux-playground/counter/app.js",
+		"/Volumes/Data/Resources/JS/Event Delegation vs Event Propagation.html",
+		"/Users/spotted/Desktop/authentication-final/authentication-final/src/app/header/header.component.ts",
+		"/Volumes/Data/Resources/JS/ReactJS/Fullstack React/fullstack-react-code/routing/music/SpotifyClient.js",
+		"/Volumes/Data/Resources/JS/ReactJS/Fullstack React/fullstack-react-code/forms/src/10-remote-persist.js",
+		"/Volumes/Data/Resources/JS/ReactJS/Fullstack React/fullstack-react-code/forms/src/09-course-select.js",
+		"/Volumes/Data/Resources/JS/ReactJS/Fullstack React/fullstack-react-code/forms/src/index.js",
+		"/Volumes/Data/Resources/JS/ReactJS/Fullstack React/fullstack-react-code/time_tracking_app/public/js/app-1.js",
+		"/Volumes/Data/Resources/JS/ReactJS/Fullstack React/fullstack-react-code/time_tracking_app/public/js/app-complete.js",
+		"/Volumes/Data/Resources/JS/ReactJS/Fullstack React/fullstack-react-code/time_tracking_app/public/vendor/fetch.js",
+		"/Volumes/Data/projects/djangotutorial/mysite/polls/views.py",
+		"/Volumes/Data/projects/djangotutorial/lib/python3.6/site-packages/pip/_vendor/requests/models.py",
+		"/Volumes/Data/projects/reactjs-playground/theplayground/src/index.js",
+		"/Volumes/Data/projects/python_playground/deferreds.py",
+		"/Users/spotted/test.php",
+		"/Users/spotted/.ssh/id_catalog_data_chambers_rsa.pub",
+		"/Users/spotted/.ssh/id_catalog_data_chambers_rsa",
+		"/Volumes/Data/projects/catalog-data-chambers/.git/config",
+		"/Volumes/Data/projects/catalog-data-chambers/deferreds.py",
+		"/Volumes/Data/Sites/timelite.dev/api/timelite/__init__.py",
+		"/Volumes/Data/Sites/timelite.dev/api/run.py",
+		"/Volumes/Data/Sites/timelite.dev/api/timelite/tests/test_user.py",
+		"/Users/spotted/.bashrc_set",
+		"/Users/spotted/.bashrc_alias",
+		"/Users/spotted/.bashrc",
+		"/Applications/PopcornTime.app/Contents/MacOS/chromecast/package.json",
+		"/Applications/PopcornTime.app/Contents/MacOS/chromecast/discovery/general-device.js",
+		"/Volumes/EFI/EFI/CLOVER/config.plist",
+		"/Volumes/Data/projects/time-series-playground/time-series-test/run2.py",
+		"/Volumes/Data/projects/time-series-playground/time-series-test/run.py",
+		"/private/var/folders/74/4fhn54y97kzdntff775fplj40000gn/T/0ecc931c-9a49-4e6b-905a-9f48cb73fbd8/web/wp-content/themes/davidepugliese/epanel/custom_options_divi.php",
+		"/Volumes/Data/Resources/Python/Strutture dati/class Node:",
+		"/untitled.php",
+		"/Volumes/Data/Sites/logs/dev-error_log",
+		"/Volumes/Data/Sites/httpd-vhosts.conf",
+		"/Volumes/Data/Sites/davidepugliese.dev/wp-config.php",
+		"/Volumes/Data/360alumni/www/vendor/liip/imagine-bundle/Exception/Imagine/Cache/Resolver/NotStorableException.php",
+		"/Volumes/Data/past_useful_projects/saporipollino/js/custom.js",
+		"/Users/spotted/Desktop/modals.html",
+		"/Volumes/EFI/startup.nsh",
+		"/Volumes/Data/past_useful_projects/www-cm/arktis_facilitator/src/app/services/httpClient.service.ts",
+		"/untitled",
+		"/private/var/folders/74/4fhn54y97kzdntff775fplj40000gn/T/BetterZip Temporary Folder.BriYlE/BetterZip Temporary Folder.vcXyCr/authentication-final/src/app/auth/auth.service.ts",
+		"/Users/spotted/blabla.php",
+		"/Users/spotted/Desktop/Asset 1.svg",
+		"/private/var/folders/74/4fhn54y97kzdntff775fplj40000gn/T/4c20aa7d-582d-4acc-bee4-a39395e15f27/web/wp-content/themes/enlightening/style.css",
+		"/private/var/folders/74/4fhn54y97kzdntff775fplj40000gn/T/4c20aa7d-582d-4acc-bee4-a39395e15f27/web/wp-content/themes/avada/functions.php",
+		"/Volumes/Data/vuejs-playground/chapter 4/index.html",
+		"/Volumes/Data/Resources/Educational Portals/Udemy/PHP/oop-php-object-oriented-programing-with-project-1-course.txt",
+		"/Users/spotted/Desktop/dragos_linkedin.html",
+		"/Volumes/Data/Sites/enlightening.dev/wp-config.php",
+		"/Volumes/Data/vuejs-playground/chapter 3/03-rendering_lists_with_v-for.html",
+		"/Volumes/Data/vuejs-playground/chapter 3/02-using_an_alternative_v_if_syntax",
+		"/Volumes/Data/vuejs-playground/chapter 3/01-conditional_rendering_v-if.html",
+		"/Volumes/Data/360alumni/www/src/Alumni/BaseBundle/Resources/views/Default/Pages/_page_blocks.html.twig",
+		"/Volumes/Data/Sites/lamodaonline.dev/wp-content/themes/lamodaonline/style.css",
+		"/Volumes/Data/Sites/lamodaonline.dev/wp-content/Divi/divi_black_friday_layout_pack/Single Sections.json",
+		"/Volumes/Data/Sites/lamodaonline.dev/wp-config.php",
+		"/Users/spotted/Desktop/sadsada.sql",
+		"/Volumes/Data/vuejs-playground/chapter 1/08-passingyourargumentswithevents.html",
+		"/Volumes/Data/vuejs-playground/chapter 1/05-outputrawhtml.html",
+		"/Volumes/Data/vuejs-playground/chapter 1/02-methodsintemplate.html",
+		"/Volumes/Data/vuejs-playground/chapter 1/03-bindlinks.html",
+		"/Volumes/Data/vuejs-playground/chapter 1/index.html",
+		"/Users/spotted/Desktop/universumphp_clean_w_events.sql",
+		"/Users/spotted/.ssh/id_andromeda_rsa.pub",
+		"/Volumes/Data/Resources/PHP/PSR autoloader example/public/index.php",
+		"/Volumes/Data/past_useful_projects/dev23/administrator/DbObj.php",
+		"/Volumes/Data/Sites/universum.dev/resources/views/index.blade.php",
+		"/Volumes/Data/Sites/universum.dev/public/index.php",
+		"/Users/spotted/.ssh/id_galaxy_rsa.pub",
+		"/Users/spotted/Desktop/linkedin_array.txt",
+		"/Volumes/Data/Resources/Educational Portals/Knpuniversity/knp-downloader/src/remaining-data.json"
+	],
+	"find":
+	{
+		"height": 38.0
+	},
+	"find_in_files":
+	{
+		"height": 167.0,
+		"where_history":
+		[
+			"<project>",
+			"-/Volumes/Data/Sites/local.360alumni.dev, -*/cache/*, /Volumes/Data/past_useful_projects/quisa.dev",
+			"/Volumes/Data/Sites/local.360alumni.dev, -*/cache/*",
+			"/Volumes/Data/360alumni/www, -*/cache/*",
+			"/Volumes/Data/360alumni/www,",
+			"/Volumes/Data/360alumni/www, -*/cache/*",
+			"/Volumes/Data/360alumni/www, *.php",
+			"/Volumes/Data/360alumni/www, *.twig",
+			"/Volumes/Data/360alumni/www, -*/cache/*, -*.sql, -*.png, -*.jpg, -*ckeditor",
+			"/Volumes/Data/360alumni/www, -*/cache/*, -*.sql, -*.png, -*.jpg",
+			"/Volumes/Data/360alumni/www, -*/cache/*, -*.sql, -*.png",
+			"/Volumes/Data/360alumni/www, -*/cache/*",
+			"/Volumes/Data/360alumni/www",
+			"/Volumes/Data/360alumni/www, *.twig",
+			"/Volumes/Data/360alumni/www, *.yml",
+			"/Volumes/Data/360alumni/www, *.twig, *.php, -*.sql, *.js, -*.min.js, -*/cache/*",
+			"/Volumes/Data/360alumni/www, *.twig, *.php, -*.sql, *.js, -*.min.js,",
+			"/Volumes/Data/360alumni/www, *.twig, *.php, -*.sql, -*.min.js",
+			"/Volumes/Data/360alumni/www",
+			"/Volumes/Data/360alumni/www, -*/ckeditor/*, -*/app/cache/*, -*.min.js, -*.log, -*.sql, -*.css",
+			"/Volumes/Data/360alumni/www, -*/ckeditor/*, -*/app/cache/*, -*.min.js, -*.log, *.twig, *.php, *.js, -*.sql, -*.css, *.yml",
+			"/Volumes/Data/360alumni/www, -*/ckeditor/*, -*/app/cache/*, -*.min.js, -*.log, *.twig, *.php, *.js, -*.sql, -*.css",
+			"/Volumes/Data/360alumni/www, -*/ckeditor/*, -*/app/cache/*, -*.min.js, -*.log, *.twig, *.php, *.js",
+			"/Volumes/Data/360alumni/www, -*/ckeditor/*, -*/app/cache/*, -*.min.js, -*.log, -*.twig, -*.php",
+			"/Volumes/Data/360alumni/www, -*/ckeditor/*, -*/app/cache/*, -*.min.js, -*.log, -*.twig -*.php",
+			"/Volumes/Data/360alumni/www, -*/ckeditor/*, -*/app/cache/*, -*.min.js, -*.log, -*.twig",
+			"/Volumes/Data/360alumni/www, -*/ckeditor/*, -*/app/cache/*, -*.min.js, -*.log",
+			"/Volumes/Data/360alumni/www, -*/ckeditor/*, -*/app/cache/*, -*.min.js",
+			"/Volumes/Data/360alumni/www, *.php, *.twig, -*/ckeditor/*, -*/web/js/*, -*/app/cache/*, -*.min.js, *.js",
+			"/Volumes/Data/360alumni/www, *.php, *.twig, -*/ckeditor/*, -*/web/js/*, -*/app/cache/*, -*.min.js",
+			"/Volumes/Data/360alumni/www, *.php, *.twig, -*/ckeditor/*, -*/web/js/*, -*.min.js",
+			"/Volumes/Data/360alumni/www, *.php, -*/ckeditor/*, -*/web/js/*, -*.min.js",
+			"/Volumes/Data/360alumni/www, *.js, -*/ckeditor/*, -*/web/js/*, -*.min.js",
+			"/Volumes/Data/360alumni/www, *.js, -*/ckeditor/*, -*/web/js/*",
+			"/Volumes/Data/360alumni/www, *.js, -*/ckeditor/*",
+			"/Volumes/Data/360alumni/www, *.js, -*/ckedit/*",
+			"/Volumes/Data/360alumni/www, *.js",
+			"/Volumes/Data/360alumni/www, *.js -ckeditor",
+			"/Volumes/Data/360alumni/www, *.js",
+			"/Volumes/Data/360alumni/www, *.twig",
+			"/Volumes/Data/360alumni/www, *user*.twig",
+			"/Volumes/Data/360alumni/www, *.twig",
+			"/Volumes/Data/360alumni/www, *.php",
+			"/Volumes/Data/360alumni/www, *.yml"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"sparklines",
+			"weather",
+			"takes",
+			"SparkLinesLine",
+			"renderWeather",
+			"weather",
+			"fetchUserFulfilled",
+			"fetchUserEpic",
+			"login",
+			"combineepics",
+			"activebook",
+			"activeBook",
+			"getState",
+			"users",
+			"notifyLiveReload",
+			"$font-stack",
+			"isEmail",
+			"Http",
+			"col-md-2",
+			"print .*\\n",
+			"\\n",
+			"plt",
+			".js",
+			"style.css",
+			"timelite",
+			"web3",
+			"user",
+			"name",
+			"section",
+			"past",
+			"%3E",
+			"%20",
+			"\\/",
+			"ImageBlob",
+			"doctrine.orm.entity_manager",
+			"codeintel_max_recursive_dir_depth",
+			"click(",
+			"javascript",
+			"post",
+			"local.360alumni.dev",
+			"password",
+			"pagename",
+			"=======",
+			">>>>>>>",
+			"Could not find a hostname and website_key match",
+			"php",
+			"VirtualHost",
+			"selected",
+			"user_list",
+			"userListExport",
+			"userListExportAction",
+			"career",
+			"social",
+			"_attendee_export",
+			"_event_attendees_list_view",
+			"social",
+			"$.post",
+			"$users",
+			"_user_reports_new_records",
+			"selected[]",
+			"data_matrix",
+			"DOWNLOAD CSV",
+			"csv",
+			"_event_attendees_list_view",
+			"_event_attendees_list_view\n",
+			"col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding job-description",
+			"user_path",
+			"~",
+			"col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding full-container-left",
+			"col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding list-image-holder hidden-xs hidden-sm",
+			"l_users",
+			"view",
+			"_my_lists_view",
+			"col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding list-title",
+			"_my_lists_view",
+			"target=_",
+			"target_",
+			"target",
+			"__blank",
+			"blank",
+			"_search",
+			"target=\"_blank\"",
+			"(?:.*)(_profile_view_external)(?:.*)(target=\"_blank\")",
+			"(?:.*)(_profile_view_external)\\b(?:.*)(target=\"_blank\")",
+			"_profile_view",
+			"featured",
+			"(?:.*)(_profile_view_external)\\b(?:.*)(target=\"_blank\")",
+			"_profile_view",
+			"$.POST",
+			"_user_list_export",
+			"csv",
+			"remove from list",
+			"my_lists",
+			"export",
+			"my_lists.user_selected_message",
+			"message",
+			"my_lists.user_selected_message",
+			"message",
+			"% end",
+			"%endif",
+			"block script",
+			"form",
+			"checkbox",
+			"set_all_checkboxes",
+			"No users selected",
+			"_my_lists_view",
+			"|length",
+			"action_remove_selected",
+			"<label class=\"sr-only\">Search</label>",
+			"\tName",
+			"<input type=\"text\" class=\"form-control\" placeholder=\"Search\"",
+			"<input type=\"text\" class=\"form-control\" placeholder=\"Search\" ",
+			"<label class=\"sr-only\">Search</label>",
+			"thead",
+			"my_lists.users_selected_move_to",
+			"With selected:",
+			"<button",
+			"_event_attendees_list_email",
+			"send",
+			"button",
+			"document",
+			"role=document",
+			"block",
+			"styles",
+			"_my_lists",
+			"vagrant",
+			"group",
+			"getRepository"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"print(.*)\\n",
+			",\\n",
+			"\\n,",
+			"web4",
+			"",
+			"/",
+			"&frasl;",
+			"/",
+			"sunrise.dev"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"folders":
+	[
+		{
+			"path": "/Volumes/Data/projects/reactjs-playground/Stephen Udemy/Playgrounds/redux-router-playground"
+		}
+	],
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/configureStore.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 842,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								447,
+								447
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material Facebook (SL).tmTheme",
+							"git_gutter_is_enabled": true,
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/epics/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 260,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								248,
+								248
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										258,
+										259
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/round_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										170,
+										171
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material Facebook (SL).tmTheme",
+							"git_gutter_is_enabled": true,
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 38.0
+	},
+	"input":
+	{
+		"height": 71.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.doc":
+	{
+		"height": 0.0
+	},
+	"output.find_results":
+	{
+		"height": 174.0
+	},
+	"output.git-commit":
+	{
+		"height": 180.0
+	},
+	"output.sftp":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 201.0
+	},
+	"output.xdebug":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "",
+	"replace":
+	{
+		"height": 72.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 327.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

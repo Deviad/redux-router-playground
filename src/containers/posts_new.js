@@ -27,7 +27,7 @@ class PostsNew extends Component {
         theForm: {
             resStatusCode: 0
         }
-    }
+    };
 
     renderField = (field) => {
         //instead of using this longer declaration
@@ -53,11 +53,11 @@ class PostsNew extends Component {
                 <div className="text-help">{field.meta.touched ? field.meta.error : ""}</div>
             </div>
         ); 
-    }
+    };
 
     onSubmit = (values) => {
-        this.props.createPost(values, ()=>(this.props.history.push("/")));
-    }
+        this.props.createPost(values);
+    };
  
     render () {
         //equivalent to const handleSubmit = this.props.handleSubmit using ES6 destructuring feature
