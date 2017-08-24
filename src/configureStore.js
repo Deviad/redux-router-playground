@@ -5,11 +5,14 @@ import { rootReducer } from "./reducers";
 import { rootEpic } from "./epics";
 import { combineEpics, createEpicMiddleware } from "redux-observable";
 import {routerMiddleware} from "react-router-redux";
-import {history} from "./providers";
+
+import createHistory from "history/createBrowserHistory";
+
+
 const epicMiddleware = createEpicMiddleware((combineEpics(rootEpic)));
 
 
-export default function configureStore() {
+function configureStore() {
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
     const store = createStore(
         rootReducer,
@@ -22,4 +25,9 @@ export default function configureStore() {
     );
     return store;
 }
+
+
+
+export const store = configureStore();
+export const history = createHistory();
 /* eslint-enable */

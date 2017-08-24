@@ -20,7 +20,7 @@ import "rxjs/add/operator/filter";
 import "rxjs/add/operator/switchMap";
 import "rxjs/add/operator/catch";
 import "rxjs/add/observable/dom/ajax";
-import {store} from "../providers";
+import {store} from "../configureStore";
 import { withRouter } from "react-router-dom";
 class PostsNew extends Component {
 
@@ -57,7 +57,13 @@ class PostsNew extends Component {
     };
 
     onSubmit = (values) => {
-        this.props.createPost(values);
+        let {history} = this.props;
+        let obj = {
+            values,
+            history
+        };
+
+        this.props.createPost(obj);
     };
  
     render () {

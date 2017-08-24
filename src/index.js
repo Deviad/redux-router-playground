@@ -2,7 +2,7 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import {store, history} from "./providers";
+import {store, history} from "./configureStore";
 // import { BrowserRouter, Route , Switch} from "react-router-dom";
 import {Switch, Route} from "react-router-dom";
 
