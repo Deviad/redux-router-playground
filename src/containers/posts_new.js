@@ -21,6 +21,7 @@ import "rxjs/add/operator/switchMap";
 import "rxjs/add/operator/catch";
 import "rxjs/add/observable/dom/ajax";
 import {store} from "../providers";
+import { withRouter } from "react-router-dom";
 class PostsNew extends Component {
 
     state = {
@@ -119,4 +120,4 @@ export default reduxForm(
         validate,
         form: "PostsNewForm"
     }
-)(connect(mapStateToProps, mapDispatchToProps)(PostsNew));
+)(withRouter(connect(mapStateToProps, mapDispatchToProps)(PostsNew)));

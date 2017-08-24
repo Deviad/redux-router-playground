@@ -4,6 +4,7 @@ import {bindActionCreators, dispatch} from "redux";
 import {connect} from "react-redux";
 import PropTypes  from "prop-types";
 import {Link} from "react-router-dom";
+import withRouter from "react-router-dom/es/withRouter";
 
     class PostsIndex extends Component {
 
@@ -14,7 +15,7 @@ import {Link} from "react-router-dom";
         componentDidMount() {
 
             this.props.fetchPosts();
-
+            console.log(this.props.history);
 
         }
 
@@ -52,4 +53,4 @@ import {Link} from "react-router-dom";
         return  bindActionCreators({fetchPosts: fetchPosts}, dispatch);
        }
 
-    export default connect(mapStateToProps, mapDispatchToProps)(PostsIndex);
+    export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PostsIndex));

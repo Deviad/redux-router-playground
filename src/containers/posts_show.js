@@ -3,6 +3,10 @@ import {fetchPostsWithId} from "../actions";
 import { connect } from "react-redux";
 import { dispatch } from "redux";
 import PropTypes  from "prop-types";
+import withRouter from "react-router-dom/es/withRouter";
+
+
+
 class PostsShow extends Component {
 
         state = {
@@ -12,6 +16,7 @@ class PostsShow extends Component {
         componentDidMount() {
             const { id } = this.props.match.params;    
             this.props.fetchPostsWithId(id);
+
         }
 
         displayPosts () {
@@ -49,4 +54,4 @@ function mapStateToProps({posts}, ownProps) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostsShow);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PostsShow));
