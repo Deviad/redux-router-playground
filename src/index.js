@@ -4,9 +4,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import {store, history} from "./providers";
 // import { BrowserRouter, Route , Switch} from "react-router-dom";
-import {Switch} from "react-router-dom";
-
-import { Route } from "react-router";
+import {Switch, Route} from "react-router-dom";
 
 import "rxjs";
 import PostsIndex from "./containers/posts_index";
