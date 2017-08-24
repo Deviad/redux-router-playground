@@ -5,5 +5,5 @@ export const rootEpic = combineEpics(
     fetchPostsEpic,
     fetchPostsWithIdEpic,
     createPostEpic,
-    changeRouteEpic
+    // changeRouteEpic
 );

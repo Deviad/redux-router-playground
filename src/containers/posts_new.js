@@ -57,7 +57,13 @@ class PostsNew extends Component {
     };
 
     onSubmit = (values) => {
-        this.props.createPost(values);
+        let {history} = this.props;
+        let obj = {
+            values,
+            history
+        };
+
+        this.props.createPost(obj);
     };
  
     render () {
