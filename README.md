@@ -1,2 +1,2 @@
-# Demo App - React Router, Flux Observable, React Forms
+# Demo App - React Router, Redux Observable, React Forms
  
