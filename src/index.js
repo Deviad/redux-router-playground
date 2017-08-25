@@ -23,6 +23,7 @@ ReactDOM.render(
                 <Route exact path="/" component={PostsIndex} />
                 <Route exact path="/posts/new" component={PostsNew} />
                 <Route exact path="/posts/:id" component={PostsShow} />
+                <Route exact path="/not-found" component={NotFound} />
                 <Route exact path="*" component={NotFound} />
             </Switch>
         </div>

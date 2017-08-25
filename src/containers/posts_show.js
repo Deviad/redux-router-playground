@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { dispatch } from "redux";
 import PropTypes  from "prop-types";
 import withRouter from "react-router-dom/es/withRouter";
-
+import Redirect from "react-router-dom/es/Redirect";
 
 
 class PostsShow extends Component {
@@ -14,8 +14,10 @@ class PostsShow extends Component {
         };
 
         componentDidMount() {
-            const { id } = this.props.match.params;    
+            const { id } = this.props.match.params;
             this.props.fetchPostsWithId(id);
+
+
 
         }
 
@@ -33,7 +35,7 @@ class PostsShow extends Component {
         }
         render() {
             if(!this.props.post) {
-                return (<div>Loading...</div>);
+                return <Redirect push to="/not-found"/>;
             }
             return (<ul>{this.displayPosts()}</ul>);
         }

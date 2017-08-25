@@ -15,7 +15,7 @@ import "rxjs/add/operator/switchMap";
 import "rxjs/add/operator/concatMap";
 import "rxjs/add/operator/catch";
 import "rxjs/add/observable/dom/ajax";
-import {push} from "react-router-redux";
+
 const ROOT_URL = "http://reduxblog.herokuapp.com/api";
 const API_KEY = "key=davide123";
 
@@ -54,9 +54,11 @@ export  const createPostEpic = (action$) => {
                                     console.log(history);
                                     console.log("Success status", data.status);
                                     history.push("/");
-                                    return createPostFulfilled(data.status);
                                 }
-                                else {console.log("Server error is", data.status);}
+                                else {
+                                    console.log("Server error is", data.status);
+                                }
+                                return createPostFulfilled(data.status);
                             },
                             (err) => {console.log(err);}
                         );
