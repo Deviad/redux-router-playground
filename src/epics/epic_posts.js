@@ -50,9 +50,11 @@ export  const createPostEpic = (action$) => {
                         .map(
                             (data) => {
                                 if (data.status === 201) {
+                                    console.log("history after data.status 201...");
+                                    console.log(history);
                                     console.log("Success status", data.status);
                                     history.push("/");
-                                    // return createPostFulfilled(data.status);
+                                    return createPostFulfilled(data.status);
                                 }
                                 else {console.log("Server error is", data.status);}
                             },
