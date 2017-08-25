@@ -4,6 +4,5 @@ import { combineEpics } from "redux-observable";
 export const rootEpic = combineEpics(
     fetchPostsEpic,
     fetchPostsWithIdEpic,
-    createPostEpic,
-    // changeRouteEpic
+    createPostEpic
 );

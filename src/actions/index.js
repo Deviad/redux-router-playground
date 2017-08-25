@@ -8,4 +8,3 @@ export function fetchPostsWithId (request) { return {type: ActionTypes.FETCH_POS
 export function fetchPostsWithIdFulfilled (body) { return {type: ActionTypes.FETCH_POSTS_WITH_ID_FULFILLED, payload: body };}
 export function createPost (request) { return {type: ActionTypes.CREATE_POST, payload: request};}
 export function createPostFulfilled (body) { return {type: ActionTypes.CREATE_POST_FULFILLED, payload: body };}
-// export function changeRoute (route) { console.log("figa"); return {type: ActionTypes.CHANGE_ROUTE, payload: route };}
