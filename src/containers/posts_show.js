@@ -35,9 +35,11 @@ class PostsShow extends Component {
         }
         render() {
             if(!this.props.post) {
-                return <Redirect push to="/not-found"/>;
+                return (<div>Loading...</div>);
             }
-            return (<ul>{this.displayPosts()}</ul>);
+            else {
+                return (<ul>{this.displayPosts()}</ul>);
+            }
         }
     }
 

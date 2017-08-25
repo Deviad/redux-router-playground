@@ -5,8 +5,12 @@ export default function postsReducer(state={}, action) {
     switch (action.type) {
         case ActionTypes.FETCH_POSTS_FULFILLED:
         case ActionTypes.FETCH_POSTS_WITH_ID_FULFILLED:
+            console.log("action payload in reducer....");
+            console.log(action.payload);
+            if (!!!action.payload) {
+                return state;
+            }
             return action.payload.reduce((acc, post) => {
-                // console.log(acc);
                 acc[post.id] = post;
                 return acc;
             }, { ...state });

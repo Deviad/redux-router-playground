@@ -31,8 +31,18 @@ export  const fetchPostsEpic = (action$) => {
 export const fetchPostsWithIdEpic = (action$) => {
     return action$.filter((action$)=> action$.type === ActionTypes.FETCH_POSTS_WITH_ID)
     .mergeMap(action$ => {
-      return  Observable.ajax.getJSON(`${ROOT_URL}/posts/?${action$.payload}&amp;${API_KEY}`)
-            .map(response => fetchPostsWithIdFulfilled(response), (err) => {console.log(err);});
+      return  Observable.ajax.get(`${ROOT_URL}/posts/?${action$.payload}&amp;${API_KEY}`)
+            .map((response) => {
+                console.log(response);
+
+                if (!!response.response.filter(post => post.id === parseInt(action$.payload)))  {
+                    return fetchPostsWithIdFulfilled(response.response);
+                } else
+                    { history.push("/not-found");
+                        return fetchPostsWithIdFulfilled();
+                    }
+                },
+                (err) => {console.log(err);});
     });
 };
 
