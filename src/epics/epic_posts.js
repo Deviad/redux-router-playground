@@ -15,19 +15,19 @@ const API_KEY = "key=davide123";
 export  const fetchPostsEpic = (action$) => {
  
     return action$.filter((action$)=> action$.type === ActionTypes.FETCH_POSTS)
-        .mergeMap(action$ => {
-          return  Observable.ajax.getJSON(`${ROOT_URL}/posts/?${API_KEY}`)
-                .map(response => fetchPostsFulfilled(response), (err) => {console.log(err);});
+        .mergeMap$(action$ => {
+          return  Observable.ajax$.getJSON(`${ROOT_URL}/posts/?${API_KEY}`)
+                .map$(response => fetchPostsFulfilled(response), (err) => {console.log(err);});
         });
 };
 
 export const fetchPostsWithIdEpic = (action$) => {
 
     return action$.filter((action$)=> action$.type === ActionTypes.FETCH_POSTS_WITH_ID)
-        .mergeMap(action$ => {
+        .mergeMap$(action$ => {
             console.log(action$.payload);
-            return  Observable.ajax.getJSON(`${ROOT_URL}/posts/?${action$.payload}&amp;${API_KEY}`)
-                .map(
+            return  Observable.ajax$.getJSON(`${ROOT_URL}/posts/?${action$.payload}&amp;${API_KEY}`)
+                .map$(
                     (posts) => {
                         let post = posts.filter((post)=>{return post.id === parseInt(action$.payload);});
                         console.log(post);
@@ -50,12 +50,12 @@ export  const createPostEpic = (action$) => {
         return action$.isArray() ?   [].concat(...action$.mergeMap(x => actionVectorizer(x))) : action$;
     })();
     return action$.filter((action$)=> action$.type === ActionTypes.CREATE_POST)
-        .mergeMap(action$ => {
+        .mergeMap$(action$ => {
                 console.log("action$ is...");
                 console.log(action$);
                 let { values, history } = action$.payload;
-                return   Observable.ajax.post(`${ROOT_URL}/posts/?${API_KEY}`, values)
-                        .map(
+                return   Observable.ajax$.post(`${ROOT_URL}/posts/?${API_KEY}`, values)
+                        .map$(
                             (data) => {
                                 if (data.status === 201) {
                                     console.log("history after data.status 201...");

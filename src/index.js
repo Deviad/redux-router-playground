@@ -11,30 +11,9 @@ import PostsShow from "./containers/posts_show";
 import registerServiceWorker from "./registerServiceWorker";
 import NotFound from "./components/not_found";
 import { ConnectedRouter, push } from "react-router-redux";
-import { Observable } from "rxjs/Observable";
 import "./reactivex";
 
-const debuggerOn = true;
 
-Observable.prototype.debug = function (message) {
-    return this.do(
-        function (next) {
-            if (debuggerOn) {
-                console.log(message, next);
-            }
-        },
-        function (err) {
-            if (debuggerOn) {
-                console.error('ERROR >>> ',message , err);
-            }
-        },
-        function () {
-            if (debuggerOn) {
-                console.log('Completed.');
-            }
-        }
-    );
-};
 
 
 

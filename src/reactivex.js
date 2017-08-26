@@ -1,13 +1,52 @@
+import {Observable} from "rxjs/Observable";
+
+import "rxjs/observable/concat";
+import "rxjs/observable/from";
+import "rxjs/observable/of";
+import "rxjs/add/operator/map";
+import "rxjs/add/operator/mergeMap";
+import "rxjs/add/operator/startWith";
+import "rxjs/add/operator/filter";
+import "rxjs/add/operator/switchMap";
+import "rxjs/add/operator/catch";
+import "rxjs/add/operator/do";
+import "rxjs/add/observable/dom/ajax";
 import "rxjs/add/observable/combineLatest";
 import "rxjs/add/operator/debounceTime";
-import { concat as concat$ } from "rxjs/observable/concat";
-import { from as from$ } from "rxjs/observable/from";
-import { of as of$ } from "rxjs/observable/of";
-import {map as map$} from "rxjs/add/operator/map";
-import {mergeMap as mergeMap$} from "rxjs/add/operator/mergeMap";
-import {startWith as startWith$} from "rxjs/add/operator/startWith";
-import {filter as filter$} from "rxjs/add/operator/filter";
-import {switchMap as switchMap$} from "rxjs/add/operator/switchMap";
-import {catch as catch$} from "rxjs/add/operator/catch";
-import {do as do$} from "rxjs/add/operator/do";
-import "rxjs/add/observable/dom/ajax";
+
+Observable.prototype.concat$ = Observable.prototype.concat;
+Observable.prototype.from$ = Observable.prototype.from;
+Observable.prototype.of$ = Observable.prototype.of;
+Observable.prototype.map$ = Observable.prototype.map;
+Observable.prototype.mergeMap$ = Observable.prototype.mergeMap;
+Observable.prototype.startWith$ = Observable.prototype.startWith;
+Observable.prototype.filter$ = Observable.prototype.filter;
+Observable.prototype.switchMap$ = Observable.prototype.switchMap;
+Observable.prototype.catch$ = Observable.prototype.catch;
+Observable.prototype.do$ = Observable.prototype.do;
+Observable.ajax$ = Observable.ajax;
+Observable.prototype.combineLatest$ = Observable.prototype.combineLatest;
+Observable.prototype.debounceTime$ = Observable.prototype.debounceTime;
+
+
+const debuggerOn = true;
+
+Observable.prototype.debug = function (message) {
+    return this.do(
+        function (next) {
+            if (debuggerOn) {
+                console.log(message, next);
+            }
+        },
+        function (err) {
+            if (debuggerOn) {
+                console.error("ERROR >>> ",message , err);
+            }
+        },
+        function () {
+            if (debuggerOn) {
+                console.log("Completed.");
+            }
+        }
+    );
+};
