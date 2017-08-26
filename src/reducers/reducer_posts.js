@@ -17,8 +17,15 @@ export default function postsReducer(state={}, action) {
         // use Object.assign if object-spread
         // syntax isn't supported
         // Object.assign({}, state);
+
+        case ActionTypes.FETCH_POSTS_WITH_ID_NOT_FOUND:
+            return "POST NOT FOUND";
+
+
         case ActionTypes.CREATE_POST_FULFILLED:
             return {...state };
+
+
         default:
             return state;
     }

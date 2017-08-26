@@ -1,21 +1,14 @@
 import * as ActionTypes from "../ActionTypes";
-import { createPostFulfilled, fetchPosts, fetchPostsFulfilled, fetchPostsWithIdFulfilled, changeRoute } from "../actions";
+import { createPostFulfilled, fetchPosts, fetchPostsFulfilled, fetchPostsWithIdFulfilled, fetchPostsWithIdNotFound } from "../actions";
 import {store, history} from "../configureStore";
 import { Observable } from "rxjs/Observable";
-import "rxjs/add/observable/combineLatest";
-import "rxjs/add/operator/debounceTime";
-import { concat as concat$ } from "rxjs/observable/concat";
-import { from as from$ } from "rxjs/observable/from";
-import { of as of$ } from "rxjs/observable/of";
-import "rxjs/add/operator/map";
-import "rxjs/add/operator/mergeMap";
-import "rxjs/add/operator/startWith";
-import "rxjs/add/operator/filter";
-import "rxjs/add/operator/switchMap";
-import "rxjs/add/operator/concatMap";
-import "rxjs/add/operator/catch";
-import "rxjs/add/observable/dom/ajax";
+import "../reactivex";
 
+import map from "lodash/fp/map";
+import flatMap from "lodash/fp/flatMap";
+import flatMapDeep from "lodash/fp/flatMapDeep";
+import filter from "lodash/fp/filter";
+import find from "lodash/fp/find";
 const ROOT_URL = "http://reduxblog.herokuapp.com/api";
 const API_KEY = "key=davide123";
 
@@ -29,21 +22,26 @@ export  const fetchPostsEpic = (action$) => {
 };
 
 export const fetchPostsWithIdEpic = (action$) => {
-    return action$.filter((action$)=> action$.type === ActionTypes.FETCH_POSTS_WITH_ID)
-    .mergeMap(action$ => {
-      return  Observable.ajax.get(`${ROOT_URL}/posts/?${action$.payload}&amp;${API_KEY}`)
-            .map((response) => {
-                console.log(response);
 
-                if (!!response.response.filter(post => post.id === parseInt(action$.payload)))  {
-                    return fetchPostsWithIdFulfilled(response.response);
-                } else
-                    { history.push("/not-found");
-                        return fetchPostsWithIdFulfilled();
+    return action$.filter((action$)=> action$.type === ActionTypes.FETCH_POSTS_WITH_ID)
+        .mergeMap(action$ => {
+            console.log(action$.payload);
+            return  Observable.ajax.getJSON(`${ROOT_URL}/posts/?${action$.payload}&amp;${API_KEY}`)
+                .map(
+                    (posts) => {
+                        let post = posts.filter((post)=>{return post.id === parseInt(action$.payload);});
+                        console.log(post);
+                        if (post.length > 0) {
+                          return  fetchPostsWithIdFulfilled(post);
+                        }
+                        else {
+                            history.push("/not-found");
+                            return fetchPostsWithIdNotFound("404");
+                        }
                     }
-                },
-                (err) => {console.log(err);});
-    });
+                ).debug("give me result");
+        });
+
 };
 
 export  const createPostEpic = (action$) => {
