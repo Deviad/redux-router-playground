@@ -27,9 +27,9 @@ class PostsShow extends Component {
                 return (
                     <div> 
                         <h3>{post.title}</h3>
-                        <ul className="list-group">
-                                <li className="list-group-item" key={post.id}>{post.title}</li>
-                        </ul>
+                        <h6>Categories: {post.categories}</h6>
+                        <p>{post.content}</p>
+
                     </div>
                 );
         }

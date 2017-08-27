@@ -29,7 +29,9 @@ import withRouter from "react-router-dom/es/withRouter";
                         <h3>Posts</h3>
                         <ul className="list-group">
                             {Object.values(this.props.posts).map((post)=>{return (
-                                <li className="list-group-item" key={post.id}>{post.title}</li>
+                                <li className="list-group-item" key={post.id}>
+                                    <Link to={`/posts/${post.id}`}>{post.title}</Link>
+                                </li>
                             ); })}
                         </ul>
                     </div>
