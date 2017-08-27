@@ -9,6 +9,9 @@ import flatMapDeep from "lodash/fp/flatMapDeep";
 import filter from "lodash/fp/filter";
 import find from "lodash/fp/find";
 import {deletePostsWithIdFulfilled} from "../actions/index";
+import {CREATE_POST_REJECTED} from "../ActionTypes";
+import {DELETE_POSTS_WITH_ID_REJECTED} from "../ActionTypes";
+import {FETCH_POSTS_REJECTED} from "../ActionTypes";
 const ROOT_URL = "http://reduxblog.herokuapp.com/api";
 const API_KEY = "key=davide123";
 
@@ -17,7 +20,11 @@ export  const fetchPostsEpic = (action$) => {
         .mergeMap$(action$ => {
           return  Observable.ajax$.getJSON(`${ROOT_URL}/posts/?${API_KEY}`)
                 .map$(response => fetchPostsFulfilled(response), (err) => {console.log(err);});
-        });
+        }).catch$(error => Observable.of$({
+            type: FETCH_POSTS_REJECTED,
+            payload: error.xhr.response,
+            error: true
+        }));
 };
 
 export const fetchPostsWithIdEpic = (action$) => {
@@ -37,7 +44,12 @@ export const fetchPostsWithIdEpic = (action$) => {
                             return fetchPostsWithIdNotFound("404");
                         }
                     }
-                ).debug("give me result");
+                ).catch$(error => Observable.of$({
+                    type: CREATE_POST_REJECTED,
+                    payload: error.xhr.response,
+                    error: true
+                  })
+                .debug("give me result"));
         });
 
 };
@@ -56,13 +68,14 @@ export  const createPostEpic = (action$) => {
                                     console.log(history);
                                     console.log("Success status", data.status);
                                     history.push("/");
-                                } else {
-                                    throw new Error("Server error is" + data.status);
+                                    return createPostFulfilled(data.status);
                                 }
-                                return createPostFulfilled(data.status);
-                            },
-                            (err) => {console.log(err);}
-                        );
+                            }
+                        ).catch$(error => Observable.of$({
+                            type: CREATE_POST_REJECTED,
+                            payload: error.xhr.response,
+                            error: true
+                    }));
         });
 };
 
@@ -72,18 +85,17 @@ export  const deletePostsWithIdEpic = (action$) => {
             return  Observable.ajax$.delete(`${ROOT_URL}/posts/${action$.payload}&amp;${API_KEY}`)
                 .map$(
                     (data) => {
-                        if (data.status === 200) {
                             console.log("history after data.status 201...");
                             console.log(history);
                             console.log("Success status", data.status);
                             history.push("/");
                             return deletePostsWithIdFulfilled(action$.payload);
-                        } else {
-                            throw new Error("Server error is" + data.status);
-                        }
-
                     }
-                );
+                ).catch$(error => Observable.of$({
+                    type: DELETE_POSTS_WITH_ID_REJECTED,
+                    payload: error.xhr.response,
+                    error: true
+                }));
         });
 };
 
