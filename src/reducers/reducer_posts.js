@@ -2,6 +2,7 @@ import * as ActionTypes from "../ActionTypes";
 
 
 export default function postsReducer(state={}, action) {
+
     switch (action.type) {
         case ActionTypes.FETCH_POSTS_FULFILLED:
         case ActionTypes.FETCH_POSTS_WITH_ID_FULFILLED:
@@ -17,6 +18,11 @@ export default function postsReducer(state={}, action) {
         // use Object.assign if object-spread
         // syntax isn't supported
         // Object.assign({}, state);
+
+        case ActionTypes.DELETE_POSTS_WITH_ID_FULFILLED:
+
+            let { [action.payload]: omit, ...rest} = state;
+                  return {...rest};
 
         case ActionTypes.FETCH_POSTS_WITH_ID_NOT_FOUND:
             return "POST NOT FOUND";

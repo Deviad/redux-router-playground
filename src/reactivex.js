@@ -16,7 +16,8 @@ import "rxjs/add/operator/do";
 import "rxjs/add/observable/dom/ajax";
 import "rxjs/add/observable/combineLatest";
 import "rxjs/add/operator/debounceTime";
-
+import "rxjs/add/observable/throw";
+import "rxjs/add/operator/catch";
 Observable.prototype.concat$ = Observable.prototype.concat;
 Observable.prototype.merge$ = Observable.prototype.merge;
 Observable.prototype.from$ = Observable.prototype.from;
@@ -35,7 +36,8 @@ Observable.ajax$ = Observable.ajax;
 Observable.prototype.combineLatest$ = Observable.prototype.combineLatest;
 Observable.prototype.debounceTime$ = Observable.prototype.debounceTime;
 Observable.prototype.toArray$ = Observable.prototype.toArray;
-
+Observable.prototype.throw$ = Observable.prototype.throw;
+Observable.prototype.catch$ = Observable.prototype.catch;
 
 const debuggerOn = true;
 

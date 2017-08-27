@@ -8,6 +8,7 @@ import flatMap from "lodash/fp/flatMap";
 import flatMapDeep from "lodash/fp/flatMapDeep";
 import filter from "lodash/fp/filter";
 import find from "lodash/fp/find";
+import {deletePostsWithIdFulfilled} from "../actions/index";
 const ROOT_URL = "http://reduxblog.herokuapp.com/api";
 const API_KEY = "key=davide123";
 
@@ -56,7 +57,7 @@ export  const createPostEpic = (action$) => {
                                     console.log("Success status", data.status);
                                     history.push("/");
                                 } else {
-                                    console.log("Server error is", data.status);
+                                    throw new Error("Server error is" + data.status);
                                 }
                                 return createPostFulfilled(data.status);
                             },
@@ -64,6 +65,28 @@ export  const createPostEpic = (action$) => {
                         );
         });
 };
+
+export  const deletePostsWithIdEpic = (action$) => {
+    return action$.filter$((action$)=> action$.type === ActionTypes.DELETE_POSTS_WITH_ID)
+        .mergeMap$(action$ => {
+            return  Observable.ajax$.delete(`${ROOT_URL}/posts/${action$.payload}&amp;${API_KEY}`)
+                .map$(
+                    (data) => {
+                        if (data.status === 200) {
+                            console.log("history after data.status 201...");
+                            console.log(history);
+                            console.log("Success status", data.status);
+                            history.push("/");
+                            return deletePostsWithIdFulfilled(action$.payload);
+                        } else {
+                            throw new Error("Server error is" + data.status);
+                        }
+
+                    }
+                );
+        });
+};
+
 /* eslint-disable */
 
 //  export const changeRouteEpic = (action$) => {
