@@ -52,5 +52,5 @@
   "plugins": [
         "react"
     ],
-  "extends": "react-app"  
+  "extends": "react-app"	
 }
